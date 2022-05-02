@@ -16,14 +16,25 @@ class Producto {
   }
 
   imprimeDatos() {
-    document.write(`Código: ${this.codigo}`);
-    document.write(`Nombre del Producto: ${this.nombre}`);
-    document.write(`Precio: ${this.precio}`);
+    document.write(`Código: ${this.codigo}<br>`);
+    document.write(`Nombre del Producto: ${this.nombre}<br>`);
+    document.write(`Precio: ${this.precio}<br>`);
+  }
+}
+let productos = [];
+
+function agregarProducto() {
+  for (let index = 0; index < 3; index++) {
+    let codigo = new Date().getTime();
+    let nombre = prompt("ingrese el nombre del producto");
+    let precio = prompt("ingrese el precio del producto");
+
+    productos.push(new Producto(codigo, nombre, precio));
   }
 }
 
-let producto1 = new Producto(012, "Queso", 300);
-let producto2 = new Producto(020, "Leche", 190);
-let producto3 = new Producto(150, "Coca-Cola", 320);
-
-let arregloProductos = [producto1, producto2, producto3];
+function mostrarDatos() {
+  productos.forEach(function (producto) {
+    producto.imprimeDatos();
+  });
+}
